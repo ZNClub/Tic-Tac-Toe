@@ -1,18 +1,3 @@
-#!/usr/bin/env python
-#--------------------------------------------------------------------------
-# Tic Tac Toe game in Python
-# Author: Mawuli Adzaku <mawuli@mawuli.me>
-# Date: 20-05-2013
-# Tested with Python 2.7
-# TO RUN:
-#         sudo chmod a+x tictactoe.py
-#         ./tictactoe.py
-# OR JUST RUN : python tictactoe.py
-# @todo: parse user commands, log game scores, run game over telnet
-# ---------------------------------------------------------------------------
-
-
-# import modules
 import random
 import sys
 import copy
@@ -23,8 +8,8 @@ class Game:
     def __init__(self):
         self.board = [' '] * 9
         self.player_name = ''
-        self.player_marker = ''
-        self.bot_name = 'TBot'
+        self.player_marker = 'Gamer'
+        self.bot_name = 'ZNevzz'
         self.bot_marker = ''
         self.winning_combos = (
         [6, 7, 8], [3, 4, 5], [0, 1, 2], [0, 3, 6], [1, 4, 7], [2, 5, 8],
@@ -51,24 +36,17 @@ class Game:
             print self.form % tuple(board[6:9] + board[3:6] + board[0:3])
 
     def get_marker(self):
-        marker = raw_input("Would you like your marker to be X or Y?: ").upper() 
-        while marker not in ["X","Y"]:
-            marker = raw_input("Would you like your marker to be X  or Y? :").upper()
-        if marker == "X":
-            return ('X', 'Y')
-        else:
-            return ('Y','X')
+        #marker = raw_input("Would you like your marker to be X or O?: ").upper() 
+        #while marker not in ["X","O"]:
+            #marker = raw_input("Would you like your marker to be X  or O? :").upper()
+        #if marker == "X":
+            #return ('X', 'O')
+        #else:
+	return ('X','O')
     
 
     def help(self):
-        print '''
-\n\t The game board has 9 sqaures(3X3).
-\n\t Two players take turns in marking the spots/grids on the board.
-\n\t The first player to have 3 pieces in a horizontal, vertical or diagonal row wins the game.
-\n\t To place your mark in the desired square, simply type the number corresponding with the square on the grid 
- 
-\n\t Press Ctrl + C to quit
-'''
+       return
 
     def quit_game(self):
         "exits game"
@@ -153,10 +131,10 @@ class Game:
                     return None
        
     def start_game(self):
-       "welcomes user, prints help message and hands over to the main game loop"
+       #"welcomes user, prints help message and hands over to the main game loop"
        # welcome user 
        print '''\n\t-----------------------------------
-                \n\t   TIC-TAC-TOE by Mawuli Adzaku
+                \n\t           TIC-TAC-TOE 
                 \n\t------------------------------------
              '''
        self.print_board(range(1,10))
@@ -168,7 +146,7 @@ class Game:
        print "Your marker is " + self.player_marker
         
        # randomly decide who can play first
-       if random.randint(0,1) == 0:
+       if 1 == 0:
            print "I will go first"
           # self.make_move(self.board,random.choice(self.corners), self.bot_marker)
            #self.print_board()
@@ -186,7 +164,7 @@ class Game:
         return move - 1
 
     def get_player_name(self):
-        return raw_input("Hi, i am %s" % self.bot_name + ". What is your name? ") 
+        return "Melwyn"#raw_input("Hi, i am %s" % self.bot_name + ". What is your name? ") 
 
 
     def enter_game_loop(self,turn):
